@@ -1,5 +1,5 @@
-name: "valvelib"
-version: 0.0.0
+name: "@haozhang950501/tanklib"
+version: 0.0.1
 type: lib
 keywords:
   - library
@@ -8,10 +8,18 @@ targets:
   - llvm
 variables:
   APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
+    - "--debug"
 files:
-  - bin
+  - "./src"
 devDependencies:
   "@ax/sdk": 2311.0.1
+  "@ax/st-lang-contrib-library-toolbox": ^0.17.2
 installStrategy: strict
 apaxVersion: 3.1.0
+registries:
+  '@haozhang950501': 'https://npm.pkg.github.com'
+scripts:
+  packlib:
+    - apax version $1
+    - apax keygen --override-existing
+    - apax pack
