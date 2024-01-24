@@ -4,6 +4,7 @@ NAMESPACE TankValveLib
      _vin:IValve;
      _vout:IValve;   
     END_VAR
+
     METHOD PUBLIC Init 
         VAR_INPUT
          vin:IValve;
@@ -28,6 +29,7 @@ NAMESPACE TankValveLib
         _vin.Open();
         _vout.Open();
     END_METHOD
+    
     METHOD PUBLIC Close
         _vin.Close();
         _vout.Close();

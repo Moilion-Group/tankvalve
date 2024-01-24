@@ -1,23 +1,24 @@
 NAMESPACE TankValvelib
+    ///枚举定义，在类外定义
     TYPE
         ValveState : (Opened, Closed, Undefined, Error) := Closed;
     END_TYPE
+    ///阀门类
     CLASS PUBLIC Valve IMPLEMENTS IValve
+        ///属性
         VAR
          _valveState:BOOL;   
         END_VAR
-        
+        ///方法-打开
         METHOD PUBLIC Open 
             _valveState:=TRUE;
         END_METHOD
-
+        ///方法-关闭
         METHOD PUBLIC Close 
             _valveState:=FALSE;
             ;
         END_METHOD
-
-        
-        
+        ///方法-获取状态
         METHOD PUBLIC GetState : ValveState
             IF _valveState THEN
                 GetState:=ValveState#Opened;
