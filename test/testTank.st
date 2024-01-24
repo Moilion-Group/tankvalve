@@ -1,5 +1,5 @@
 USING AxUnit;
-USING TankLib;
+USING TankValveLib;
 
 NAMESPACE Mytest_Tank
 
@@ -10,7 +10,7 @@ NAMESPACE Mytest_Tank
             vin:Valve; 
             vout:Valve;                  
             _outPutSignalIn : BOOL;
-            _outPutSignalOut : BOOL;
+            _outPutSignalOut : BOOL; 
         END_VAR
         
         {Test}
@@ -37,6 +37,7 @@ NAMESPACE Mytest_Tank
         
         {Test}
         METHOD PUBLIC Test_CloseMethod_Expect_vin_Closed_vout_Closed
+            t.Init(vin,vout);
             t.Close();            
             vin.WriteCyclic(outPutSignal => _outPutSignalIn);
             vout.WriteCyclic(outPutSignal => _outPutSignalOut);
@@ -47,6 +48,7 @@ NAMESPACE Mytest_Tank
 
         {Test}
         METHOD PUBLIC Test_FeedingMethod_Expect_vin_Closed_vout_Open
+            t.Init(vin,vout);
             t.Feeding();            
             vin.WriteCyclic(outPutSignal => _outPutSignalIn);
             vout.WriteCyclic(outPutSignal => _outPutSignalOut);

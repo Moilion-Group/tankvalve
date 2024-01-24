@@ -1,5 +1,5 @@
-name: "@haozhang950501/tanklib"
-version: 0.0.1
+name: "@moilion-group/tankvalvelib"
+version: 0.0.5
 type: lib
 keywords:
   - library
@@ -7,19 +7,43 @@ targets:
   - "1500"
   - llvm
 variables:
+  # an arbitrary directory that can be chosen freely
+  PATH_NAME: "./bin/handover-folder"
+  # you can change the predefined output path where the TIA Portal library will be generated
+  TIA_GLOBAL_LIB_PATH: "./bin/TIAPortalLibrary"
+  # set the path to your local TIA Portal installation
+  TIA_INSTALL_PATH: "C:\\Program Files\\Siemens\\Automation\\Portal V18"
+  PACKAGE_REGISRTY_ADDRESS: "https://npm.pkg.github.com"
+  # remove, if you do not want to allow debugging of your code
   APAX_BUILD_ARGS:
     - "--debug"
 files:
-  - "./src"
+  # - "./src"
+  - ./bin/1500/*.lib
+  # - ./bin/llvm/*.lib
 devDependencies:
   "@ax/sdk": 2311.0.1
   "@ax/st-lang-contrib-library-toolbox": ^0.17.2
 installStrategy: strict
 apaxVersion: 3.1.0
-registries:
-  '@haozhang950501': 'https://npm.pkg.github.com'
+
+dependencies:
+  "@ax/ax2tia": ^7.0.16
+
+#Scripts for deploy Library to TIA Portal and NPM
 scripts:
+  export-tialib: ax2tia -i ./bin/1500/*.lib -o "$PATH_NAME"
+  import-tialib: '"$TIA_INSTALL_PATH\\bin\\Siemens.Simatic.Lang.Library.Importer.exe"
+    -i "$PATH_NAME" -o "$TIA_GLOBAL_LIB_PATH"'
+  create-tialib:
+    - apax build
+    - apax export-tialib
+    - apax import-tialib
   packlib:
     - apax version $1
     - apax keygen --override-existing
     - apax pack
+  publib:
+    - apax publish -p *.apax.tgz  -r $PACKAGE_REGISRTY_ADDRESS
+registries:
+  '@Moilion-Group': 'https://npm.pkg.github.com'

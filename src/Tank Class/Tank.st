@@ -1,46 +1,36 @@
-NAMESPACE TankLib
-
-    CLASS Tank
-        VAR PRIVATE
-            //内聚阀门接口，实现罐与阀门的松耦合
-            _inValve:IValve;
-            _outValve:IValve;
+NAMESPACE TankValveLib
+   CLASS PUBLIC Tank
+    VAR
+     _vin:IValve;
+     _vout:IValve;   
+    END_VAR
+    METHOD PUBLIC Init 
+        VAR_INPUT
+         vin:IValve;
+         vout:IValve;   
         END_VAR
+        _vin:=vin;
+        _vout:=vout;
+        ;
+    END_METHOD
 
-        //接口初始化
-        METHOD PUBLIC Init 
-            VAR_INPUT
-                inValve:IValve;
-                outValve:IValve;
-            END_VAR
-            _inValve:=inValve;
-            _outValve:=outValve;
-            ;
-        END_METHOD
-        //装罐
+    METHOD PUBLIC Filling 
+        _vin.Open();
+        _vout.Close();
+    END_METHOD
 
-        METHOD PUBLIC Filling
-            _inValve.Open();
-            _outValve.Close();
-        END_METHOD
-        //罐清洗
+    METHOD PUBLIC Feeding 
+        _vin.Close();
+        _vout.Open();
+    END_METHOD
 
-        METHOD PUBLIC Flushing 
-            _inValve.Open();
-            _outValve.Open();
-        END_METHOD
-        //出料
-
-        METHOD PUBLIC Feeding
-            _inValve.Close();
-            _outValve.Open();
-        END_METHOD
-        //关闭
-        
-        METHOD PUBLIC Close 
-            _inValve.Close();
-            _outValve.Close();
-        END_METHOD
-    END_CLASS
-    
+    METHOD PUBLIC  Flushing
+        _vin.Open();
+        _vout.Open();
+    END_METHOD
+    METHOD PUBLIC Close
+        _vin.Close();
+        _vout.Close();
+    END_METHOD
+   END_CLASS
 END_NAMESPACE

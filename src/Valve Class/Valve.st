@@ -1,39 +1,40 @@
-NAMESPACE TankLib
-TYPE
-    ValveState:(Opened,Closed,Error,Undefined):=Undefined;
-END_TYPE
-    //实现阀门接口
+NAMESPACE TankValvelib
+    TYPE
+        ValveState : (Opened, Closed, Undefined, Error) := Closed;
+    END_TYPE
     CLASS PUBLIC Valve IMPLEMENTS IValve
-        VAR PRIVATE
-        _valveState:BOOL;
+        VAR
+         _valveState:BOOL;   
         END_VAR
-
-        //打开
-        METHOD PUBLIC Open
-            _valveState := TRUE;
+        
+        METHOD PUBLIC Open 
+            _valveState:=TRUE;
         END_METHOD
 
-        //关闭
-        METHOD PUBLIC Close
+        METHOD PUBLIC Close 
             _valveState:=FALSE;
+            ;
         END_METHOD
 
-        //获取状态
-        METHOD PUBLIC GetState:ValveState
-            if(_valveState) Then
+        
+        
+        METHOD PUBLIC GetState : ValveState
+            IF _valveState THEN
                 GetState:=ValveState#Opened;
             ELSE
                 GetState:=ValveState#Closed;
             END_IF;
+            ;
         END_METHOD
-        
-        //输出信号
-        METHOD Public WriteCyclic
+
+        METHOD PUBLIC WriteCyclic 
             VAR_OUTPUT
-                outPutSignal:BOOL;
+                valveState:BOOL;
             END_VAR
-            outPutSignal:=_valveState;
+            valveState:=_valveState;
+            ;
         END_METHOD
+
     END_CLASS
 
 END_NAMESPACE

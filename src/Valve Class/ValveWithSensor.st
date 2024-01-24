@@ -1,5 +1,6 @@
-NAMESPACE TankLib
-   /* 继承Valve-实现IValve */
+NAMESPACE TankValveLib
+  
+    /// 带反馈的阀门类，继承Valve-
     CLASS PUBLIC ValveWithSensor EXTENDS Valve
         VAR PRIVATE
         _closeSensor:BOOL;

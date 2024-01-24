@@ -1,5 +1,5 @@
-NAMESPACE TankLib
-
+NAMESPACE TankValveLib
+    ///阀门接口
     INTERFACE IValve
 
         METHOD Open            

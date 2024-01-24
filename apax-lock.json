@@ -1,11 +1,14 @@
 {
-  "name": "@haozhang950501/tanklib",
-  "version": "0.0.1",
+  "name": "@moilion-group/tankvalvelib",
+  "version": "0.0.4",
   "lockFileVersion": "2",
   "installStrategy": "strict",
   "root": {
-    "name": "@haozhang950501/tanklib",
-    "version": "0.0.1",
+    "name": "@moilion-group/tankvalvelib",
+    "version": "0.0.4",
+    "dependencies": {
+      "@ax/ax2tia": "^7.0.16"
+    },
     "devDependencies": {
       "@ax/sdk": "2311.0.1",
       "@ax/st-lang-contrib-library-toolbox": "^0.17.2"
@@ -41,6 +44,19 @@
       "integrity": "sha512-4YiABcXRqpS6InViS1dWvmk45XxlPtWyBR/GaJxnUQOuG2vrmR0FMknXko3dglzW9CP2AwRsUWX3r44hx9irzw==",
       "resolved": "https://registry.simatic-ax.siemens.io/@ax/st-lang-contrib-library-toolbox/-/st-lang-contrib-library-toolbox-0.17.2.tgz",
       "dependencies": {}
+    },
+    "@ax/ax2tia": {
+      "name": "@ax/ax2tia",
+      "version": "7.0.16",
+      "integrity": "sha512-QMO6+uMHGBQNPdC4Hp1GtIGGQJkH2kVrjfwDiAop45wers5OseZ0OG5fjX5lr2AGfO+WwCMt9xiA1C5KfSpIqg==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/ax2tia/-/ax2tia-7.0.16.tgz",
+      "cpu": [
+        "x64"
+      ],
+      "dependencies": {
+        "@ax/ax2tia-docs": "7.0.16",
+        "@ax/ax2tia-stc-plugin": "7.0.16"
+      }
     },
     "@ax/axunitst": {
       "name": "@ax/axunitst",
@@ -190,6 +206,20 @@
         "@ax/certificate-management-win-x64": "1.1.0",
         "@ax/certificate-management-linux-x64": "1.1.0"
       }
+    },
+    "@ax/ax2tia-docs": {
+      "name": "@ax/ax2tia-docs",
+      "version": "7.0.16",
+      "integrity": "sha512-V/bvViIzFgVnPpPr2vvLhwCLAAhoqF9gOQkqpNVRbfhButWTB4RGGqAG7e+lWioAuitYKJlRKbWfQDL5VKvNwg==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/ax2tia-docs/-/ax2tia-docs-7.0.16.tgz",
+      "dependencies": {}
+    },
+    "@ax/ax2tia-stc-plugin": {
+      "name": "@ax/ax2tia-stc-plugin",
+      "version": "7.0.16",
+      "integrity": "sha512-MzLDO2Dj9TxQonLI3tbBpQUHgJ8wfQr49laM/ppa7rwTGO7Rc0vBp1UZzenXsfam/LQqt5e754qSsrX38nHiPw==",
+      "resolved": "https://registry.simatic-ax.siemens.io/@ax/ax2tia-stc-plugin/-/ax2tia-stc-plugin-7.0.16.tgz",
+      "dependencies": {}
     },
     "@ax/axunitst-library": {
       "name": "@ax/axunitst-library",
