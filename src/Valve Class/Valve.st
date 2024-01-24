@@ -7,7 +7,8 @@ NAMESPACE TankValvelib
     CLASS PUBLIC Valve IMPLEMENTS IValve
         ///属性
         VAR
-         _valveState:BOOL;   
+         _valveState:BOOL; 
+           
         END_VAR
         ///方法-打开
         METHOD PUBLIC Open 
