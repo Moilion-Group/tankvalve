@@ -17,8 +17,8 @@ NAMESPACE Mytest_Tank
         METHOD PUBLIC Test_FillingMethod_Expect_vin_Open_vout_Closed
             t.Init(vin,vout);
             t.Filling();            
-            vin.WriteCyclic(outPutSignal => _outPutSignalIn);
-            vout.WriteCyclic(outPutSignal => _outPutSignalOut);
+            vin.WriteCyclic( _outPutSignalIn);
+            vout.WriteCyclic(_outPutSignalOut);
             AxUnit.Assert.Equal(actual := _outPutSignalIn, expected := TRUE);
             AxUnit.Assert.Equal(actual := _outPutSignalOut, expected := FALSE);
             ;
@@ -28,8 +28,8 @@ NAMESPACE Mytest_Tank
         METHOD PUBLIC Test_FlushingMethod_Expect_vin_Open_vout_Open
             t.Init(vin,vout);
             t.Flushing();           
-            vin.WriteCyclic(outPutSignal => _outPutSignalIn);
-            vout.WriteCyclic(outPutSignal => _outPutSignalOut);
+            vin.WriteCyclic( _outPutSignalIn);
+            vout.WriteCyclic( _outPutSignalOut);
             AxUnit.Assert.Equal(actual := _outPutSignalIn, expected := TRUE);
             AxUnit.Assert.Equal(actual := _outPutSignalOut, expected := TRUE);
             ;            
@@ -39,8 +39,8 @@ NAMESPACE Mytest_Tank
         METHOD PUBLIC Test_CloseMethod_Expect_vin_Closed_vout_Closed
             t.Init(vin,vout);
             t.Close();            
-            vin.WriteCyclic(outPutSignal => _outPutSignalIn);
-            vout.WriteCyclic(outPutSignal => _outPutSignalOut);
+            vin.WriteCyclic( _outPutSignalIn);
+            vout.WriteCyclic(  _outPutSignalOut);
             AxUnit.Assert.Equal(actual := _outPutSignalIn, expected := FALSE);
             AxUnit.Assert.Equal(actual := _outPutSignalOut, expected := FALSE);
             ;            
@@ -50,8 +50,8 @@ NAMESPACE Mytest_Tank
         METHOD PUBLIC Test_FeedingMethod_Expect_vin_Closed_vout_Open
             t.Init(vin,vout);
             t.Feeding();            
-            vin.WriteCyclic(outPutSignal => _outPutSignalIn);
-            vout.WriteCyclic(outPutSignal => _outPutSignalOut);
+            vin.WriteCyclic( _outPutSignalIn);
+            vout.WriteCyclic( _outPutSignalOut);
             AxUnit.Assert.Equal(actual := _outPutSignalIn, expected := FALSE);
             AxUnit.Assert.Equal(actual := _outPutSignalOut, expected := TRUE);
             ;            
