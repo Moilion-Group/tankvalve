@@ -13,7 +13,7 @@ NAMESPACE TankValveLib
         END_VAR
         _vin:=vin;
         _vout:=vout;
-        
+        ;
     END_METHOD
 
     METHOD PUBLIC Filling 
