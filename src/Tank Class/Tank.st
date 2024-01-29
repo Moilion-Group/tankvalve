@@ -2,7 +2,8 @@ NAMESPACE TankValveLib
    CLASS PUBLIC Tank
     VAR
      _vin:IValve;
-     _vout:IValve;   
+     _vout:IValve;
+        
     END_VAR
 
     METHOD PUBLIC Init 
@@ -12,7 +13,7 @@ NAMESPACE TankValveLib
         END_VAR
         _vin:=vin;
         _vout:=vout;
-        ;
+        
     END_METHOD
 
     METHOD PUBLIC Filling 
