@@ -28,7 +28,7 @@ NAMESPACE TankValvelib
             END_IF;
             ;
         END_METHOD
-
+        ///循环写Q区
         METHOD PUBLIC WriteCyclic 
             VAR_OUTPUT
                 valveState:BOOL;
